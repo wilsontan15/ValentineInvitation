@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="valentine.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.text-after').hide()
+      $('.text-yes').hide()
+      $('.button-yes').hide()
+      $('.button-no').hide()
+      $('.container').mouseenter(function () {
+          $('.card').stop().animate({
+              top: '-150px'
+          }, 'slow');
+      }).mouseleave(function () {
+          $('.card').stop().animate({
+              top: 0
+          }, 'slow');
+      });
+      
+      $('.card').click(function(event){
+          $('.text').fadeOut(1000);
+          $('.heart').fadeOut(1000);
+          $('.text-after').fadeIn(1000);
+          $('.button-yes').fadeIn(1000);
+          $('.button-no').fadeIn(1000);
+      });
+
+      $('.button-yes').click(function(event){
+        event.stopImmediatePropagation();
+        $('.text-after').fadeOut(1000);
+        $('.button-yes').fadeOut(1000);
+        $('.button-no').fadeOut(1000);
+        $('.text-yes').fadeIn(1000);
+        $('.heart').fadeIn(1000);
+        $('.card').off("click");
+        setTimeout(() => {
+          window.close()
+        },10000);
+      });
+
+      $('.button-no').click(function(){
+        alert("Invalid Option and you better choose YES!")
+      });
+      
+
+  });
+  </script>
+</head>
+<body>
+
+    <div class="container">  
+        <div class="valentines">
+          <div class="envelope"></div>
+          <div class="front"></div>
+          <div class="card">
+          <div class="text">Valentine's Day</br>Invitation</div>
+          <div class="text-after">Follow Me </br> to </br>Ferringhi Garden</div>
+          <button id="Yes" class="button-yes">YES</button>
+          <button id="No" class="button-no">NO</button>
+          <div class="text-yes">Thank You</br>See you there!</div>
+          <div class="heart"</div>
+          </div>
+          <div class="hearts">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+            <div class="four"></div>
+            <div class="five"></div>
+          </div>
+        </div>
+        </div>
+        <div class="shadow"></div>
+    </div>
+
+</body>
+</html>
+
+
